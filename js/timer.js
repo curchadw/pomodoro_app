@@ -16,19 +16,25 @@ class Timer{
 
     select(type){
         this.type = type;
-        //this.reset()
+        this.reset()
         console.log(this.type)
     }
 
 
     //start method
     start(){
-        
+        let leftover_time = this.pomodoro;
+        let countdown = setInterval(()=>{
+            leftover_time--;
+            this.clock.innerHTML = leftover_time;
+            leftover_time <= 0 ? clearInterval(countdown) : '';
+        },1000)
     }
 
     //reset method
     reset(){
         //this.stop()
+        
     }
 
     //stop method
