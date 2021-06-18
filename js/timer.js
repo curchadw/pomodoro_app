@@ -21,4 +21,20 @@ class Timer{
     }
 
 
+    //start method
+    start(){
+        
+    }
+
+    //reset method
+    reset(){
+        //this.stop()
+    }
+
+    //stop method
+    stop(){
+
+    }
+
+
 }
