@@ -20,30 +20,39 @@ class Timer{
         console.log(this.type)
     }
 
-   
+    // let start_time = this.pomodoro;//setting the time to display the 25 min start
+    //     const countdown = () =>{
+    //         --start_time;
+    //         this.clock.innerHTML = start_time
+    //         start_time === 0 ? clearInterval(timeinterval) : '';
+    //     }
+    //     let timeinterval = setInterval(countdown,1000)
+        
 
     //start method
     start(){
-        let leftover_time = this.pomodoro;//setting the time to display the 25 min start
+        let start_time = this.pomodoro;
+       
         const countdown = () =>{
-            --leftover_time;
-            this.clock.innerHTML = leftover_time
-            leftover_time <= 0 ? clearInterval(timeinterval) : '';
+            --start_time;
+            this.clock.innerHTML = start_time;
+            if(start_time === 0){
+                clearInterval(timeinterval)
+            }
         }
         let timeinterval = setInterval(countdown,1000)
-        
     }
+
 
     //reset method
     reset(){
-        //this.stop()
-        
-        
+        this.clock.innerHTML = 25
+        this.stop()
     }
 
     //stop method
     stop(){
-
+        
     }
 
 
