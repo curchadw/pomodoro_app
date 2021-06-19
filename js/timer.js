@@ -20,13 +20,6 @@ class Timer{
         console.log(this.type)
     }
 
-    // let start_time = this.pomodoro;//setting the time to display the 25 min start
-    //     const countdown = () =>{
-    //         --start_time;
-    //         this.clock.innerHTML = start_time
-    //         start_time === 0 ? clearInterval(timeinterval) : '';
-    //     }
-    //     let timeinterval = setInterval(countdown,1000)
         
 
     //start method
@@ -41,18 +34,20 @@ class Timer{
             }
         }
         let timeinterval = setInterval(countdown,1000)
+
+        
     }
 
 
     //reset method
     reset(){
-        this.clock.innerHTML = 25
+        this.clock.innerHTML = this.pomodoro
         this.stop()
     }
 
     //stop method
     stop(){
-        
+        clearInterval()
     }
 
 
