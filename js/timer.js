@@ -10,6 +10,7 @@ class Timer{
         this.time = this.timeElement;
         this.text = this.time <= 9 ? `0 ${this.time}` : `${this.time}`; //format the clock 06:00 23:00, etc. if less than or equal to 9 --> 00:00 - 09:00
         this.circle = document.querySelector('#ring > circle');
+        this.interval = 0;
         
 
     }
@@ -24,16 +25,58 @@ class Timer{
 
     //start method
     start(){
-        let start_time = this.pomodoro;
+        let time_left = 0;
        
-        const countdown = () =>{
-            --start_time;
-            this.clock.innerHTML = start_time;
-            if(start_time === 0){
-                clearInterval(timeinterval)
+        if(this.type == 'pomodoro'){
+            this.time_left = this.pomodoro;
+            const countdown = () =>{
+                if(time_left <=0){
+                    clearInterval(this.interval)
+                    let time = document.getElementById('time');
+                    time.innerHTML = 0
+                }else{
+                    let time = document.getElementById('time');
+                    time.innerHTML = time_left;
+                }
+
+                time_left--;
             }
+
+            this.interval = setInterval(countdown, 2500)
+
+        }else if(this.type == 'shortbreak'){
+            this.time_left = this.shortbreak;
+            const countdown = () =>{
+                if(time_left <=0){
+                    clearInterval(this.interval)
+                    let time = document.getElementById('time');
+                    time.innerHTML = 0
+                }else{
+                    let time = document.getElementById('time');
+                    time.innerHTML = time_left;
+                }
+
+                time_left--;
+            }
+
+            this.interval = setInterval(countdown, 500)
+        }else{
+            this.time_left = this.longbreak;
+            const countdown = () =>{
+                if(time_left <=0){
+                    clearInterval(this.interval)
+                    let time = document.getElementById('time');
+                    time.innerHTML = 0
+                }else{
+                    let time = document.getElementById('time');
+                    time.innerHTML = time_left;
+                }
+
+                time_left--;
+            }
+
+            this.interval = setInterval(countdown, 1500)
         }
-        let timeinterval = setInterval(countdown,1000)
 
         
     }
@@ -41,13 +84,19 @@ class Timer{
 
     //reset method
     reset(){
-        this.clock.innerHTML = this.pomodoro
         this.stop()
+        if(this.type == 'pomodoro'){
+            this.clock.innerText = this.pomodoro;
+        }else if(this.type = 'shortbreak'){
+            this.clock.innerText = this.shortbreak;
+        }else{
+            this.clock.innerText = this.longbreak;
+        }
     }
 
     //stop method
     stop(){
-        clearInterval()
+        clearInterval(this.interval)
     }
 
 
