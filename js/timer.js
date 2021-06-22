@@ -65,7 +65,7 @@ class Timer{
         this.stop()
         this.circle.style.strokeDashoffset = 1024;
         this.time = this[this.type] *60
-        this.text = this.time <= 9 ? `0 ${this.time}` : `${this.time}`;
+        this.text = this.time <= 9 ? `0${this.time}` : `${this.time}`;
         this.actionElement.innerText = 'start'
         this.clock.innerText = `${this.text}:00`
         
