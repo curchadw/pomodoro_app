@@ -55,6 +55,8 @@ class Timer{
                }
            }
            this.interval = setInterval(countdown,1000)
+
+           this.actionElement.innerText = 'stop'
     
         
     }

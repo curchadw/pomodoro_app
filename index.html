@@ -5,22 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Pomodoro</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="container">
         <h2>Pomodoro</h2>
-        <nav class='center'>
+        <div class='nav'>
             <ul>
-                <li class ='pointer active' onclick="timer.select('pomodoro')">Pomodoro</li>
-                <li class='pointer' onclick="timer.select('shortbreak')">Short Break</li>
-                <li class='pointer' onclick="timer.select('longbreak')">Long Break</li>
+<li onclick="timer.select('pomodoro')">Pomodoro</li>
+                <li onclick="timer.select('shortbreak')">Short Break</li>
+                <li onclick="timer.select('longbreak')">Long Break</li>
             </ul>
-            <div id="bgindicator"></div>
-        </nav>
+            <!-- this will be the sliding indicator -->
+            <div id="indicator"></div> 
+        </div>
         <!----Timer-->
         <section id="timer" class="center">
-            <div id="othercircle">
+            <div id="outercircle">
                 <div id="innercircle">
                     <svg id="ring">
                         <circle r='163' cx='50%' cy='50%'></circle>
