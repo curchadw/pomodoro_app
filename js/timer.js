@@ -25,59 +25,37 @@ class Timer{
 
     //start method
     start(){
-        let time_left = 0;
-       
-        if(this.type == 'pomodoro'){
-            this.time_left = this.pomodoro;
-            const countdown = () =>{
-                if(time_left <=0){
-                    clearInterval(this.interval)
-                    let time = document.getElementById('time');
-                    time.innerHTML = 0
-                }else{
-                    let time = document.getElementById('time');
-                    time.innerHTML = time_left;
-                }
+       const format = (time) =>{
+           time < 10 ? "0" + time : time;
+       }
+           let time = this[this.type] * 60;//this.pomodoro, this.shortbreak..etc
+           this.clock.innerText = `${this.text}:00`;
+           this.circle.style.strokeDashoffset = 1024;
+           let startTime= time
+           let minutes = 0;
+           let seconds = 0;
 
-                time_left--;
-            }
+           time--
+           const countdown = () =>{
+               minutes = Math.floor(time/60);
+               seconds = Math.floor(time % 60)
 
-            this.interval = setInterval(countdown, 2500)
+               minutes = format(minutes);
+               seconds = format(seconds);
 
-        }else if(this.type == 'shortbreak'){
-            this.time_left = this.shortbreak;
-            const countdown = () =>{
-                if(time_left <=0){
-                    clearInterval(this.interval)
-                    let time = document.getElementById('time');
-                    time.innerHTML = 0
-                }else{
-                    let time = document.getElementById('time');
-                    time.innerHTML = time_left;
-                }
+               this.clock.innerText = `${minutes} : ${seconds}`;
+               const percent = ((time%startTime)/startTime)*100;
+               const offset = (percent/100)*1024;
+               this.circle.style.strokeDashoffset = offset;
 
-                time_left--;
-            }
-
-            this.interval = setInterval(countdown, 500)
-        }else{
-            this.time_left = this.longbreak;
-            const countdown = () =>{
-                if(time_left <=0){
-                    clearInterval(this.interval)
-                    let time = document.getElementById('time');
-                    time.innerHTML = 0
-                }else{
-                    let time = document.getElementById('time');
-                    time.innerHTML = time_left;
-                }
-
-                time_left--;
-            }
-
-            this.interval = setInterval(countdown, 1500)
-        }
-
+               if(--time < 0){
+                   time = 0;
+                   clearInterval(this.interval)
+                   this.actionElement.innerText = 'reset'
+               }
+           }
+           this.interval = setInterval(countdown,1000)
+    
         
     }
 
@@ -85,18 +63,18 @@ class Timer{
     //reset method
     reset(){
         this.stop()
-        if(this.type == 'pomodoro'){
-            this.clock.innerText = this.pomodoro;
-        }else if(this.type = 'shortbreak'){
-            this.clock.innerText = this.shortbreak;
-        }else{
-            this.clock.innerText = this.longbreak;
-        }
+        this.circle.style.strokeDashoffset = 1024;
+        this.time = this[this.type] *60
+        this.text = this.time <= 9 ? `0 ${this.time}` : `${this.time}`;
+        this.actionElement.innerText = 'start'
+        this.clock.innerText = `${this.text}:00`
+        
     }
 
     //stop method
     stop(){
         clearInterval(this.interval)
+        this.actionElement.innerText = 'start'
     }
 
 
