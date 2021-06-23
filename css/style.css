@@ -43,6 +43,7 @@ body{
     width: 337px;
     height: 63px;
     background-color: var(--darker-blue);
+    z-index: 99;
 }
 
 .nav ul{
@@ -57,6 +58,7 @@ body{
     opacity: .4;
     font-weight: 700;
     transition: opacity 10ms ease-out;
+    list-style: none;
 }
 
 
@@ -68,4 +70,65 @@ body{
     margin-top: -55px;
     transition: margin-left 30ms ease-out;
 
+}
+
+.pointer{
+    user-select: none;
+    cursor: pointer;
+}
+
+.pointer.active{
+    color: var(--darker-blue);
+    opacity: 1;
+}
+
+
+#outercircle{
+    position: relative;
+    margin-top: 45px;
+    display: flex;
+    height: 410px;
+    width: 410px;
+    border-radius: 50%;
+    background: linear-gradient(315deg, #2e325a 0%, #0e122a 100%);
+    box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+}
+
+#innercircle{
+    margin: auto;
+    display: flex;
+    height: 366px;
+    width:  366px;
+    border-radius: 50%;
+    background-color: var(--darker-blue);
+}
+
+#ring{
+    margin: auto;
+    height: 339px;
+    width: 339px;
+}
+
+#textcontainer{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 160px;
+    font-size: 45px;
+}
+
+#action{
+    font-size: 30px;
+}
+
+#ring circle{
+    fill: transparent;
+    stroke: var(--orange);
+    stroke-width: 10;
+    stroke-dasharray: 1024, 1024;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 200ms ease-out;
 }
