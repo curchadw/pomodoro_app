@@ -1,0 +1,71 @@
+:root{
+    --orange: #f87070;
+    --cyan: #70f3f8;
+    --purple: #d881f8;
+    --light-blue: #d7e0ff;
+    --dark-blue: #1e213f;
+    --darker-blue: #161932;
+    --white: #ffffff;
+    --biege: #eff1fa;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Kumbh Sans", sans-serif;
+    color: var(--light-blue);
+    background-color: var(--dark-blue);
+
+
+}
+
+.active{
+    color: var(--darker-blue);
+    font-weight: 700;
+    opacity: 1;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav{
+    border-radius: 50px;
+    padding-left: 10px;
+    width: 337px;
+    height: 63px;
+    background-color: var(--darker-blue);
+}
+
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.nav ul li{
+    opacity: .4;
+    font-weight: 700;
+    transition: opacity 10ms ease-out;
+}
+
+
+#indicator{
+    background-color: var(--orange);
+    border-radius: 50px;
+    height: 48px;
+    width: calc(95%/3);
+    margin-top: -55px;
+    transition: margin-left 30ms ease-out;
+
+}
