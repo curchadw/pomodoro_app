@@ -68,6 +68,54 @@
                                       class='body1'
                                       min='0'
                                       />
+                                      <div class="input_buttons" onclick='inc("pomodoro")'>
+                                          <button class="uparrow">
+                                            <img src="assets/icon-arrow-up.svg" alt="up_arrow" />  
+                                          </button>
+                                          <button class="downarrow" onclick='dec("pomodoro")'>
+                                            <img src="assets/icon-arrow-down.svg" alt="down_arrow" />  
+                                          </button>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <label for="short_break" class="body2">shortbreak</label>
+                                <div class="inputnumber">
+                                    <input 
+                                      type="number" 
+                                      id="short_break" 
+                                      value='5'
+                                      class='body1'
+                                      min='0'
+                                      />
+                                      <div class="input_buttons">
+                                        <button class="uparrow" onclick='inc("shortbreak")'>
+                                          <img src="assets/icon-arrow-up.svg" alt="up_arrow" />  
+                                        </button>
+                                        <button class="downarrow" onclick='dec("shortbreak")'>
+                                          <img src="assets/icon-arrow-down.svg" alt="down_arrow" />  
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <label for="long_break" class="body2">longbreak</label>
+                                <div class="inputnumber">
+                                    <input 
+                                      type="number" 
+                                      id="long_break" 
+                                      value='15'
+                                      class='body1'
+                                      min='0'
+                                      />
+                                      <div class="input_buttons">
+                                        <button class="uparrow" onclick='inc("longbreak")'>
+                                          <img src="assets/icon-arrow-up.svg" alt="up_arrow" />  
+                                        </button>
+                                        <button class="downarrow" onclick='dec("longbreak")'>
+                                          <img src="assets/icon-arrow-down.svg" alt="down_arrow" />  
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
